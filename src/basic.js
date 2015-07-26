@@ -1,6 +1,7 @@
 /* ===========================================================================
-Created:	2015/07/20 Thomas Nguyen - thomas_ejob@hotmail.com
-Purpose:	Learning QUnit
+Created:	2015/07/20
+Author:		Thomas Nguyen - thomas_ejob@hotmail.com
+Location:	https://github.com/yes4me/
 Inspired:	http://code.tutsplus.com/tutorials/how-to-test-your-javascript-code-with-qunit--net-9077
 =========================================================================== */
 

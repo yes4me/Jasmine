@@ -1,6 +1,5 @@
 /* ===========================================================================
-Created:	http://www.sitepoint.com/getting-started-qunit/
-Purpose:	Learning QUnit
+Source:	http://www.sitepoint.com/getting-started-qunit/
 =========================================================================== */
 
 var App = {

@@ -57,6 +57,8 @@ describe("removeDuplicates Tests", function() {
 	});
 });
 
+
+
 describe("hasDuplicates Tests", function() {
 	beforeEach(function() {
 		console.log("beforeEach: Starting removeDuplicates test");
@@ -86,6 +88,28 @@ describe("hasDuplicates Tests", function() {
 		expect( myArray.hasDuplicates([-2.3,5.34,1.03,6.9,5.34,9]) ).toBeTruthy();
 	});
 });
+
+
+
+describe("getStep Tests", function() {
+	beforeEach(function() {
+		console.log("beforeEach: Starting removeDuplicates test");
+		myArray = new MyArray();
+	});
+	afterEach(function() {
+		console.log("afterEach: test removeDuplicates completed");
+		myArray = null;
+	});
+	it("special cases: MyArray is undefined", function() {
+		expect(function(){ myArray.getStep() }).toThrow();
+		expect(function(){ myArray.getStep('a') }).toThrow();
+		expect(function(){ myArray.getStep([]) }).toThrow();
+		expect( myArray.getStep([6]) ).toEqual(0);
+		expect( myArray.getStep([6,4,2]) ).toEqual(-2);
+	});
+});
+
+
 
 describe("areConsecutive Tests", function() {
 	beforeEach(function() {

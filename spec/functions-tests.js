@@ -10,19 +10,18 @@ Goal:
 =========================================================================== */
 
 var myArray;
+beforeEach(function() {
+	console.log("beforeEach: Starting removeDuplicates test");
+	myArray = new MyArray();
+});
+afterEach(function() {
+	console.log("afterEach: test removeDuplicates completed");
+	myArray = null;
+});
 
 
 
 describe("removeDuplicates Tests", function() {
-	beforeEach(function() {
-		console.log("beforeEach: Starting removeDuplicates test");
-		myArray = new MyArray();
-	});
-	afterEach(function() {
-		console.log("afterEach: test removeDuplicates completed");
-		myArray = null;
-	});
-
 	it("special cases: MyArray is defined", function() {
 		myArray = new MyArray([1,2,3,1]);
 		expect( myArray.removeDuplicates() ).toEqual([1,2,3]);
@@ -60,15 +59,6 @@ describe("removeDuplicates Tests", function() {
 
 
 describe("hasDuplicates Tests", function() {
-	beforeEach(function() {
-		console.log("beforeEach: Starting removeDuplicates test");
-		myArray = new MyArray();
-	});
-	afterEach(function() {
-		console.log("afterEach: test removeDuplicates completed");
-		myArray = null;
-	});
-
 	it("special cases", function() {
 		expect(function(){ myArray.hasDuplicates() }).toThrow();
 		expect(function(){ myArray.hasDuplicates('a') }).toThrow();
@@ -92,14 +82,6 @@ describe("hasDuplicates Tests", function() {
 
 
 describe("getStep Tests", function() {
-	beforeEach(function() {
-		console.log("beforeEach: Starting removeDuplicates test");
-		myArray = new MyArray();
-	});
-	afterEach(function() {
-		console.log("afterEach: test removeDuplicates completed");
-		myArray = null;
-	});
 	it("special cases: MyArray is undefined", function() {
 		expect(function(){ myArray.getStep() }).toThrow();
 		expect(function(){ myArray.getStep('a') }).toThrow();
@@ -112,15 +94,6 @@ describe("getStep Tests", function() {
 
 
 describe("areConsecutive Tests", function() {
-	beforeEach(function() {
-		console.log("beforeEach: Starting removeDuplicates test");
-		myArray = new MyArray();
-	});
-	afterEach(function() {
-		console.log("afterEach: test removeDuplicates completed");
-		myArray = null;
-	});
-
 	it("special cases", function() {
 		expect(function(){ myArray.areConsecutive() }).toThrow();
 		expect(function(){ myArray.areConsecutive('a') }).toThrow();

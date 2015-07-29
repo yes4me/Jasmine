@@ -1,0 +1,1 @@
+java -Dfile.encoding=UTF-8 -jar JSCover-all.jar -ws --document-root=../ --report-dir=log --no-instrument=spec --no-instrument=lib

@@ -1,10 +1,10 @@
-/* ===========================================================================
+/* =====================================================================================
 Created:	2015/07/25
 Author:		Thomas Nguyen - thomas_ejob@hotmail.com
 Location:	https://github.com/yes4me/
 Purpose:	Learning Jasmine - https://www.npmjs.com/package/jasmine-expect
 PS:			https://www.safaribooksonline.com/library/view/javascript-testing-with/9781449356729/Custom_Matchers.html#Custom_Matchers
-=========================================================================== */
+===================================================================================== */
 
 jasmine.getEnv().defaultTimeoutInterval = 3000;
 

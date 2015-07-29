@@ -1,4 +1,4 @@
-/* ===========================================================================
+/* =====================================================================================
 Created:	2015/07/25
 Author:		Thomas Nguyen - thomas_ejob@hotmail.com
 Location:	https://github.com/yes4me/
@@ -15,7 +15,7 @@ Goal:
 	After you have developed the function such that all the tests passes, please
 	add few more tests that you may think tests areas not tested by tests provided
 	by me.
-=========================================================================== */
+===================================================================================== */
 
 
 describe("Range Tests", function() {

@@ -1,4 +1,4 @@
-/* ===========================================================================
+/* =====================================================================================
 Created:	2015/07/26
 Author:		Thomas Nguyen - thomas_ejob@hotmail.com
 Location:	https://github.com/yes4me/
@@ -7,7 +7,7 @@ Goal:
 	you will see how you can use helper functions to develop you tests
 	You will also how see code written somewhere else (range.js) can be used to develop
 	you test data.
-=========================================================================== */
+===================================================================================== */
 
 var myArray;
 beforeEach(function() {

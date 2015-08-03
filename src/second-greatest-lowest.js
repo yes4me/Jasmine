@@ -36,10 +36,9 @@ function compute(numbers) {
 	if (numbers.length<2)
 		return undefined;
 	if (numbers.length==2)
-		return numbers;
+		return [ numbers[1], numbers[numbers.length-2] ];
 
 	numbers.sort(sortNumber);
-
 	//sort method sorts elements alphabetically by default
-	return [numbers[1], numbers[numbers.length-2]];
+	return [ numbers[1], numbers[numbers.length-2] ];
 }

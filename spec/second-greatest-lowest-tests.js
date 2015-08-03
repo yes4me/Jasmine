@@ -26,6 +26,7 @@ describe("second-greatest-lowest Tests", function() {
 		expect( compute([1,2,3,1]) ).toEqual([1,2]);
 		expect( compute([3,-3,2]) ).toEqual([2,2]);
 		expect( compute([3,-3]) ).toEqual([-3,3]);
+		expect( compute([-3,3]) ).toEqual([3,-3]);
 	});
 	it("Others", function() {
 		expect( compute([1,2,3,4]) ).toEqual([2,3]);

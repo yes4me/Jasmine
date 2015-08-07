@@ -170,63 +170,96 @@ describe("getStep Tests", function() {
 		expect(function(){ myArray.getStep('a') }).toThrow();
 		expect(function(){ myArray.getStep([]) }).toThrow();
 		expect( myArray.getStep([6]) ).toEqual(0);
+	});
+	it("positive values", function() {
+		expect( myArray.getStep([2,4,6]) ).toEqual(2);
+		expect( myArray.getStep([-2,0,2]) ).toEqual(2);
+		expect( myArray.getStep([-6,-4,-2]) ).toEqual(2);
+	});
+	it("negative values", function() {
 		expect( myArray.getStep([6,4,2]) ).toEqual(-2);
+		expect( myArray.getStep([2,0,-2]) ).toEqual(-2);
+		expect( myArray.getStep([-2,-4,-6]) ).toEqual(-2);
 	});
 });
 
 
 
-describe("areConsecutive Tests", function() {
+describe("areConsecutiveSorted Tests", function() {
 	it("special cases", function() {
-		expect(function(){ myArray.areConsecutive() }).toThrow();
-		expect(function(){ myArray.areConsecutive('a') }).toThrow();
-		expect(function(){ myArray.areConsecutive([]) }).toThrow();
-		expect( myArray.areConsecutive([1,2,3], 'xxx', [4,5,6]) ).toBeTruthy();
+		expect(function(){ myArray.areConsecutiveSorted() }).toThrow();
+		expect(function(){ myArray.areConsecutiveSorted('a') }).toThrow();
+		expect(function(){ myArray.areConsecutiveSorted([]) }).toThrow();
+		expect( myArray.areConsecutiveSorted([1,2,3], 'xxx', [4,5,6]) ).toBeTruthy();
 	});
 	it("positive values", function() {
-		expect( myArray.areConsecutive([4]) ).toBeTruthy();
-		expect( myArray.areConsecutive([3,4]) ).toBeTruthy();
-		expect( myArray.areConsecutive([4,3]) ).toBeTruthy();
-		expect( myArray.areConsecutive([4,4]) ).toBeFalsy();
-		expect( myArray.areConsecutive([2,3,4]) ).toBeTruthy();
-		expect( myArray.areConsecutive([4,3,2]) ).toBeTruthy();
-		expect( myArray.areConsecutive([3,4,2]) ).toBeFalsy();
-		expect( myArray.areConsecutive([4,2,3]) ).toBeFalsy();
-		expect( myArray.areConsecutive([4,4,4]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([4]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([3,4]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([4,3]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([4,4]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([2,3,4]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([4,3,2]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([3,4,2]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([4,2,3]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([4,4,4]) ).toBeFalsy();
 	});
 	it("negative values", function() {
-		expect( myArray.areConsecutive([-4]) ).toBeTruthy();
-		expect( myArray.areConsecutive([-3,-4]) ).toBeTruthy();
-		expect( myArray.areConsecutive([-4,-3]) ).toBeTruthy();
-		expect( myArray.areConsecutive([-4,-4]) ).toBeFalsy();
-		expect( myArray.areConsecutive([-2,-3,-4]) ).toBeTruthy();
-		expect( myArray.areConsecutive([-4,-3,-2]) ).toBeTruthy();
-		expect( myArray.areConsecutive([-3,-4,-2]) ).toBeFalsy();
-		expect( myArray.areConsecutive([-4,-2,-3]) ).toBeFalsy();
-		expect( myArray.areConsecutive([-4,-4,-4]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([-4]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-3,-4]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-4,-3]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-4,-4]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([-2,-3,-4]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-4,-3,-2]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-3,-4,-2]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([-4,-2,-3]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([-4,-4,-4]) ).toBeFalsy();
 	});
 	it("positive and negative values", function() {
-		expect( myArray.areConsecutive([-1,0,1]) ).toBeTruthy();
-		expect( myArray.areConsecutive([1,0,-1]) ).toBeTruthy();
-		expect( myArray.areConsecutive([1,-1,-3]) ).toBeFalsy();
-		expect( myArray.areConsecutive([4.1,3.1,2.1]) ).toBeTruthy();
-		expect( myArray.areConsecutive([-4.1,-3.1,-2.1]) ).toBeTruthy();
-		expect( myArray.areConsecutive([-3.1,-4.1,-2.1]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([-1,0,1]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([1,0,-1]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([1,-1,-3]) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([4.1,3.1,2.1]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-4.1,-3.1,-2.1]) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-3.1,-4.1,-2.1]) ).toBeFalsy();
 	});
 	it("positive and negative values NOT allowing duplicates", function() {
-		expect( myArray.areConsecutive([0,1,2,2,3], false) ).toBeFalsy();
-		expect( myArray.areConsecutive([3,2,2,1,0], false) ).toBeFalsy();
-		expect( myArray.areConsecutive([-0,-1,-2,-2,-3], false) ).toBeFalsy();
-		expect( myArray.areConsecutive([-3,-2,-2,-1,-0], false) ).toBeFalsy();
-		expect( myArray.areConsecutive([-2,-1,0,1,1,2], false) ).toBeFalsy();
-		expect( myArray.areConsecutive([2,1,1,0,-1,-2], false) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([0,1,2,2,3], false) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([3,2,2,1,0], false) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([-0,-1,-2,-2,-3], false) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([-3,-2,-2,-1,-0], false) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([-2,-1,0,1,1,2], false) ).toBeFalsy();
+		expect( myArray.areConsecutiveSorted([2,1,1,0,-1,-2], false) ).toBeFalsy();
 	});
 	it("positive and negative values allowing duplicates", function() {
-		expect( myArray.areConsecutive([0,1,2,2,3], true) ).toBeTruthy();
-		expect( myArray.areConsecutive([3,2,2,1,0], true) ).toBeTruthy();
-		expect( myArray.areConsecutive([-0,-1,-2,-2,-3], true) ).toBeTruthy();
-		expect( myArray.areConsecutive([-3,-2,-2,-1,-0], true) ).toBeTruthy();
-		expect( myArray.areConsecutive([-2,-1,0,1,1,2], true) ).toBeTruthy();
-		expect( myArray.areConsecutive([2,1,1,0,-1,-2], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([0,1,2,2,3], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([3,2,2,1,0], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-0,-1,-2,-2,-3], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-3,-2,-2,-1,-0], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([-2,-1,0,1,1,2], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveSorted([2,1,1,0,-1,-2], true) ).toBeTruthy();
+	});
+});
+
+
+describe("areConsecutiveUnsorted Tests", function() {
+	it("NOT allowing duplicates", function() {
+		expect( myArray.areConsecutiveUnSorted([2,4,1,5,3], false) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([2,0,1,3,-1], false) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([2.3,4.3,5.3,3.3], false) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([2.3,4.3,5.3,3.3,4.3], false) ).toBeFalsy();
+		expect( myArray.areConsecutiveUnSorted([-2.3,-4.3,-5.3,-3.3], false) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([-2.3,-4.3,-5.3,-3.3,-4.3], false) ).toBeFalsy();
+		expect( myArray.areConsecutiveUnSorted([1.2,-1.8,-0.8,0.2], false) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([1.2,-1.8,-0.8,0.2,-1.8], false) ).toBeFalsy();
+	});
+	it("allowing duplicates", function() {
+		expect( myArray.areConsecutiveUnSorted([2,4,1,5,3], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([2,0,1,3,-1], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([2.3,4.3,5.3,3.3], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([2.3,4.3,5.3,3.3,4.3], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([-2.3,-4.3,-5.3,-3.3], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([-2.3,-4.3,-5.3,-3.3,-4.3], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([1.2,-1.8,-0.8,0.2], true) ).toBeTruthy();
+		expect( myArray.areConsecutiveUnSorted([1.2,-1.8,-0.8,0.2,-1.8], true) ).toBeTruthy();
 	});
 });

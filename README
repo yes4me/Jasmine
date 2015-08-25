@@ -1,0 +1,50 @@
+
+                          Jasmine & JSCover
+
+  What is it?
+  -----------
+  Jasmine is Behavior-driven development framework for testing JavaScript code.
+  JSCover is an easy to use JavaScript coverage testing tool.
+
+
+  The Latest Version
+  ------------------
+  https://github.com/yes4me?tab=repositories
+
+
+  Documentation
+  -------------
+  Explication of the code is: https://www.youtube.com/watch?v=2u1TWQSCsns
+
+
+  Installation
+  ------------
+  Download the latest "Latest Stable Release" (ZIP Release) of JSCover:
+      http://tntim96.github.io/JSCover/
+  Create a directory called "tools" in your project
+  Copy the following files from the ZIP release to the directory "tools"
+    JSCover-1.0.20\target\dist\JSCover-all.jar
+    JSCover-1.0.20\src\test\javascript\lib\PhantomJS\run-jscover-jasmine.js
+    JSCover-1.0.20\examples\server\jscover-server.bat
+  Modify the jscover-server.bat to:
+    java -Dfile.encoding=UTF-8 -jar JSCover-all.jar -ws --document-root=../ --report-dir=log --no-instrument=spec --no-instrument=lib
+  Open prompt and run jscover-server.bat
+
+  METHOD 1:
+    Open browser to: localhost:8080/jscoverage.html
+    For URL, type the name of the HTML file. Examples:
+        range.html
+        http://localhost:8080/range.html
+    Click "open in frame"
+    Click on the tabs SUMMARY to see Javascript coverage.
+  METHOD2:
+    Open browser to: http://localhost:8080/jscoverage.html?range.html
+    Click "open in frame"
+    Click on the tabs SUMMARY to see Javascript coverage.
+
+  PS: I tested this project with Firefox 39.0
+
+
+  Contacts
+  --------
+  Author:   Thomas Nguyen - thomas_ejob@hotmail.com
